@@ -5,9 +5,17 @@ const toPath = (_path) => path.join(process.cwd(), _path)
 module.exports = {
   stories: ["../packages/**/stories/*.stories.tsx"],
   addons: [
-    "storybook-addon-performance/register",
+    {
+      name: "@storybook/addon-essentials",
+      options: {
+        backgrounds: false,
+        docs: false,
+        actions: false,
+        controls: false,
+      },
+    },
     "@storybook/addon-a11y",
-    "@storybook/addon-toolbars",
+    "@storybook/addon-storysource",
   ],
   typescript: {
     reactDocgen: false,
